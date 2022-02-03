@@ -1,0 +1,23 @@
+A. Perform the Random sampling for the given data and analyse it.
+Example 1: From a population of 10 women and 10 men as given in the table in Figure
+1 on the left below, create a random sample of 6 people for Group 1 and a periodic
+sample consisting of every 3rd woman for Group 2.
+You need to run the sampling data analysis tool twice, once to create Group 1 and again
+to create Group 2. For Group 1 you select all 20 population cells as the Input Range and
+Random as the Sampling Method with 6 for the Random Number of Samples. For Group
+2 you select the 10 cells in the Women column as Input Range and Periodic with Period
+3.
+Open existing excel sheet with population data
+Sample Sheet looks as given below:
+Set Cell O1 = Male and Cell O2 = Female
+To generate a random sample for male students from given population go to Cell O1
+and type
+=INDEX(E$2:E$62,RANK(B2,B$2:B$62))
+Drag teh formula to the desired no of cell to select random sample.
+PSIT1P1~~~~~ Research in Computing Practical
+M. Sc. [Information Technology] SEMESTER ~ I Teacher’s Reference Manual
+46
+Now, to generate a random sample for female students go to cell P1 and type
+=INDEX(K$2:K$40,RANK(H2,H$2:H$40))
+Drag teh formula to the desired no of cell to select random sample.
+Output:
