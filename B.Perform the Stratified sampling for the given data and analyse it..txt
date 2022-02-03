@@ -1,0 +1,51 @@
+B.Perform the Stratified sampling for the given data and analyse it.
+we are to carry out a hypothetical housing quality survey across Lagos state, Nigeria.
+And we looking at a total of 5000 houses (hypothetically). We don’t just go to one local
+government and select 5000 houses, rather we ensure that the 5000 houses are a
+representative of the whole 20 local government areas Lagos state is comprised of. This
+is called stratified sampling. The population is divided into homogenous strata and the
+right number of instances is sampled from each stratum to guarantee that the test-set
+(which in this case is the 5000 houses) is a representative of the overall population. If
+we used random sampling, there would be a significant chance of having bias in the
+survey results.
+Program Code:
+import pandas as pd
+importnumpy as np
+importmatplotlib
+importmatplotlib.pyplot as plt
+plt.rcParams['axes.labelsize'] = 14
+plt.rcParams['xtick.labelsize'] = 12
+plt.rcParams['ytick.labelsize'] = 12
+importseaborn as sns
+color = sns.color_palette()
+sns.set_style('darkgrid')
+importsklearn
+fromsklearn.model_selection import train_test_split
+housing =pd.read_csv('housing.csv')
+print(housing.head())
+print(housing.info())
+#creating a heatmap of the attributes in the dataset
+PSIT1P1~~~~~ Research in Computing Practical
+M. Sc. [Information Technology] SEMESTER ~ I Teacher’s Reference Manual
+48
+correlation_matrix = housing.corr()
+plt.subplots(figsize=(8,6))
+sns.heatmap(correlation_matrix, center=0, annot=True, linewidths=.3)
+corr =housing.corr()
+print(corr['median_house_value'].sort_values(ascending=False))
+sns.distplot(housing.median_income)
+plt.show()
+output:
+
+
+info 
+There’s a ton of information we can mine from the heatmap above, a couple of strongly
+positively correlated features and a couple of negatively correlated features. Take a look
+at the small bright box right in the middle of the heatmap from total_rooms on the left
+’y-axis’ till households and note how bright the box is as well as the highly positively
+correlated attributes, also note that median_income is the most correlated feature to the
+target which is median_house_value.
+info 
+From the image above, we can see that most median incomes are clustered between
+$20,000 and $50,000 with some outliers going far beyond $60,000 making the
+distribution skew to the right.
